@@ -105,6 +105,7 @@ class Application{
             </div>
         </div>`)
     }
+    //insert forecast panels
     renderForecast(item){
         item.forecast.forecastday.forEach(day => {
                 forecastPlaceholder.insertAdjacentHTML('beforeend', 
