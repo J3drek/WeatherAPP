@@ -35,7 +35,7 @@ class Application{
         try{
             const coords = await this.getPosition();
             const { latitude:lat, longitude:lng } = coords.coords;
-            const myLocation = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${lat},${lng}&days=7&aqi=yes&alerts=no`)
+            const myLocation = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${lat},${lng}&days=7&aqi=yes&alerts=no`)
             const finalLocation = await myLocation.json();
             placeholder.innerHTML = '';
             forecastPlaceholder.innerHTML = '';            
@@ -61,7 +61,7 @@ class Application{
         }  
     }
     WeatherSearch(){
-        return fetch(`http://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${input.value}&days=7&aqi=yes&alerts=no`).then(response => response.json());
+        return fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${input.value}&days=7&aqi=yes&alerts=no`).then(response => response.json());
     }
     //Getting input value by pressing enter
     submitInput(key){
