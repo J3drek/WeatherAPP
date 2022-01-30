@@ -9,10 +9,6 @@ const confirmBtn = document.querySelector('.BUTTON_CLG');
 const forecastPlaceholder = document.querySelector('.weather--pred');
 
 const months = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'];
-const daysOfForecast = 7;
-document.cookie
-
-
 
 //MAIN CLASS
 class Application{
@@ -35,7 +31,7 @@ class Application{
         try{
             const coords = await this.getPosition();
             const { latitude:lat, longitude:lng } = coords.coords;
-            const myLocation = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${lat},${lng}&days=1&aqi=yes&alerts=no`)
+            const myLocation = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${lat},${lng}&days=7&aqi=yes&alerts=no`)
             const finalLocation = await myLocation.json();
             placeholder.innerHTML = '';
             forecastPlaceholder.innerHTML = '';            
@@ -61,7 +57,7 @@ class Application{
         }  
     }
     WeatherSearch(){
-        return fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${input.value}&days=1&aqi=yes&alerts=no`).then(response => response.json());
+        return fetch(`https://api.weatherapi.com/v1/forecast.json?key=460119015d4849c9ad6122857222801&q=${input.value}&days=7&aqi=yes&alerts=no`).then(response => response.json());
     }
     //Getting input value by pressing enter
     submitInput(key){
@@ -82,7 +78,7 @@ class Application{
         }
         return;
     }
-    
+    //rendering main location
     renderYouLocationWeather(somePlace){
         // let data = await this.getCurrentData();
         const day = new Date();
